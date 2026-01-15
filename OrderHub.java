@@ -202,11 +202,10 @@ public class OrderHub  {
     }
 
     // Do NOT add progressingIds at startup
-    // for (Integer orderId : progressingIds) { ... } <-- removed
 
     pcs.firePropertyChange("orderMap", null, new TreeMap<>(orderMap));
     System.out.println("OrderMap initialized. " + orderMap.size() + " active orders.");
-}
+        }
 
 
 

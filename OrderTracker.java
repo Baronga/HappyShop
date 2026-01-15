@@ -25,8 +25,7 @@ import java.util.TreeMap;
  */
 
 public class OrderTracker implements PropertyChangeListener {
-    private final int WIDTH = UIStyle.trackerWinWidth;
-    private final int HEIGHT = UIStyle.trackerWinHeight;
+
     
     // TreeMap (orderID,state) holding order IDs and their corresponding states.
     private final TreeMap<Integer, OrderState> ordersMap = new TreeMap<>();
