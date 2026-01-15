@@ -50,7 +50,7 @@ void search() throws SQLException {
 
     String productId = cusView.tfId.getText().trim();
 
-    // 1️⃣ No input
+    //  No input
     if (productId.isEmpty()) {
         theProduct = null;
         displayLaSearchResult = "Please type ProductID";
@@ -58,25 +58,25 @@ void search() throws SQLException {
         return;
     }
 
-    // 2️⃣ Search database
+    //  Search database
     theProduct = databaseRW.searchByProductId(productId);
 
-    // 3️⃣ Not found
+    //  Not found
     if (theProduct == null) {
         displayLaSearchResult = "No Product was found with ID " + productId;
         updateView();
         return;
     }
 
-    // 4️⃣ Found but no stock
+    //  Found but no stock
     if (theProduct.getStockQuantity() <= 0) {
         displayLaSearchResult = "Product is out of stock";
-        theProduct = null;   // 🔴 IMPORTANT: prevents AddToTrolley
+        theProduct = null;   // IMPORTANT: prevents AddToTrolley
         updateView();
         return;
     }
 
-    // 5️⃣ Valid product
+    //  Valid product
     displayLaSearchResult = String.format(
             "Product ID: %s\n%s\nPrice: £%.2f%s",
             theProduct.getProductId(),
@@ -111,8 +111,7 @@ void addToTrolley(Product theProduct) {
             break;
         }
     }
-
-    // 2. First time add → create copy with quantity 1
+    // 2. First time add then create copy with quantity 1
     if (!found) {
         Product copy = new Product(
                 theProduct.getProductId(),
@@ -124,7 +123,6 @@ void addToTrolley(Product theProduct) {
         copy.setOrderedQuantity(1); // 
         trolley.add(copy);
     }
-
     // 3. Sort by product ID
     trolley.sort((p1, p2) -> p1.getProductId().compareTo(p2.getProductId()));
 
