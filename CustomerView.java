@@ -91,7 +91,6 @@ public class CustomerView  {
         laPageTitle.setStyle(UIStyle.labelTitleStyle);
         lvProducts = new ListView<>();
         lvProducts.setPrefHeight(200);
-        lvProducts.setPlaceholder(new Label("No products found"));
 
         Label laId = new Label("ID:      ");
         laId.setStyle(UIStyle.labelStyle);
